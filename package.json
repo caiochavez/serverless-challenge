@@ -1,0 +1,34 @@
+{
+  "name": "serverless-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "jest",
+    "deploy": "serverless deploy --verbose"
+  },
+  "keywords": [],
+  "author": "Caio Chaves Brito <caaiochavez@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@shelf/jest-mongodb": "^2.2.0",
+    "@types/aws-lambda": "^8.10.89",
+    "@types/jest": "^27.4.0",
+    "@types/mongodb": "^4.0.7",
+    "@types/serverless": "^1.78.40",
+    "aws-lambda": "^1.0.7",
+    "babel-jest": "^27.4.5",
+    "jest": "^27.4.5",
+    "serverless": "^2.70.0",
+    "serverless-dotenv-plugin": "^3.11.1",
+    "serverless-plugin-typescript": "^2.1.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "mongodb": "^4.2.2"
+  }
+}

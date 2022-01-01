@@ -1,0 +1,61 @@
+service: serverless-challenge-employee
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-plugin-typescript
+
+provider:
+  name: aws
+  environment:
+    MONGODB_URI: ${file}
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:stage, 'us-east-1'}
+  memorySize: 128
+  timeout: 5
+
+functions:
+  createEmployee:
+    handler: src/useCases/CreateEmployee/CreateEmployeeFunction.handle
+    description: Create a new employee
+    events:
+      - http:
+          path: employee
+          method: post
+          cors: true
+  findEmployee:
+    handler: src/useCases/FindEmployee/FindEmployeeFunction.handle
+    description: Find an employee
+    events:
+      - http:
+          path: employee/{id}
+          method: get
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  updateEmployee:
+    handler: src/useCases/UpdateEmployee/UpdateEmployeeFunction.handle
+    description: Update an employee
+    events:
+      - http:
+          path: employee/{id}
+          method: put
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  deleteEmployee:
+    handler: src/useCases/DeleteEmployee/DeleteEmployeeFunction.handle
+    description: Delete an employee
+    events:
+      - http:
+          path: employee/{id}
+          method: delete
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
